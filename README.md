@@ -10,6 +10,13 @@ This repository contains the smart contracts that power Voltz Protocol. Over tim
 
 We would love to see how you can build and improve upon what we've built here at Voltz.
 
+## Active LP Optimization
+
+In order to test out a simple Active LP Optimizer on top of Voltz Protocol, head over to [Active LP Simulation](https://github.com/Voltz-Protocol/voltz-core/blob/main/test/active_lp_management_strategy/active_lp_management_strategy.ts).
+
+Refer to [Active LP Strategy](https://github.com/Voltz-Protocol/voltz-core/blob/main/contracts/test/TestActiveLPManagementStrategy.sol) to check out a simple active lp strategy contract implementation.
+
+
 ## Liquidator Bot (example)
 
 In order to test out a simple liquidator bot simulation on top of Voltz, head over to [Liquidator Bot Simulation](https://github.com/Voltz-Protocol/voltz-core/blob/main/test/liquidator_bot/liquidator_bot.ts).
@@ -108,6 +115,12 @@ To start a local blockchain (hardhat node) and deploy our contracts to it, run:
 To deploy our contracts to the kovan testnet, first check the configuration for kovan in [the deployment config](./deployConfig/config.ts), and once it is correct run:
 
 `npm run deploy:kovan`
+
+To verify the deployed contracts in etherscan, ensure that you have a valid `ETHERSCAN_API_KEY` value defined in your `.env` file and then run:
+
+`npx hardhat --network kovan etherscan-verify --solc-input`
+
+(At the time of writing the `--solc-input` flag is required due to some solidity issues. The result is somewhat unsatisfactory because all known contract code is displayed in etherscan for each contract, rather than just the relevant contracts. See [here](https://github.com/wighawag/hardhat-deploy/issues/263) for some discussion, but note that for us it seems to fail even with solc 0.8.9. See )
 
 #### Mint tokens for testing
 

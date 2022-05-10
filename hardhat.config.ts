@@ -57,7 +57,7 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 2,
+        runs: 60, // As high as is possible without blowing contract size limits
       },
     },
   },
@@ -67,8 +67,8 @@ const config: HardhatUserConfig = {
     },
     hardhat: {
       // forking: {
-      //   url: "https://eth-mainnet.alchemyapi.io/v2/pNmKK8pTXHVggw2X4XPAOOuL9SllmxdZ",
-      //   blockNumber: 13270796,
+      //   url: `${process.env.KOVAN_URL}`,
+      //   blockNumber: 31458273,
       // },
       allowUnlimitedContractSize: true,
     },
